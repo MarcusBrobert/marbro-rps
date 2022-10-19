@@ -1,23 +1,25 @@
 package rps;
 
 public class Player {
-
-    //@TODO: If the fields are not declared as private they can be manipulated from outside
-    int score;
+    private int score;
     private String name;
 
-    //constructor
+    //Constructor
     public Player(String name, int score) {
         this.name = name;
         this.score = score;
     }
 
-    public String getName() {
-        return name;
-    }
+    //Getters and setters
+    public String getName() { return name; }
 
-    public void rageQuit() { System.exit(0); }
+    public void setName(String name) { this.name = name; }
 
+    public int getScore() { return score; }
+
+    public void setScore(int score) { this.score = score; }
+
+    //A method that when called upon returns the player's name and score
     @Override
     public String toString() {
         return "Name: " + this.name + ". Score: " + this.score + ".";

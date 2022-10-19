@@ -12,9 +12,10 @@ public class RockPaperScissors {
     }
 
     public void playGame() {
-        //Initialize the Scanner and print a welcome message
+        //Initialize the Scanner, ask the user for their name and print a welcome message
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to Rock, Paper, Scissors!");
+        System.out.println("Welcome to Rock, Paper, Scissors!\nWhat is your name?");
+        player.setName(scanner.nextLine());
         System.out.println(player.toString());
 
         //Use a while(true) loop and only break the loop if the user wants to quit
@@ -43,9 +44,9 @@ public class RockPaperScissors {
 
             //Convert the random number to a string using conditionals and print the AI's move
             String aiMove;
-            if (aiRandomNumber == 0) {
+            if (aiRandomNumber == Moves.ROCK) {
                 aiMove = "rock";
-            } else if (aiRandomNumber == 1) {
+            } else if (aiRandomNumber == Moves.PAPER) {
                 aiMove = "paper";
             } else {
                 aiMove = "scissors";
@@ -57,10 +58,10 @@ public class RockPaperScissors {
                 System.out.println("[It's a tie!]");
             } else if ((userMove.equals("rock") && aiMove.equals("scissors")) || (userMove.equals("paper") && aiMove.equals("rock")) || (userMove.equals("scissors") && aiMove.equals("paper"))) {
                 System.out.println("[You won!]");
-                player.score++;
+                player.setScore(player.getScore()+1);
             } else {
                 System.out.println("[You lost!]");
-                player.score--;
+                player.setScore(player.getScore()-1);
             }
         }
         System.out.println("Thanks for playing Rock, Paper, Scissors!");
